@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameState="*res://addons/narrative_rpg_framework/GameState.gd"
+GameState="*res://addons/narrative_rpg_framework/core/GameState.gd"
 
 [editor_plugins]
 
