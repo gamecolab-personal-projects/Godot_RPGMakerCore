@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="Godot_RPGMakerCore"
+run/main_scene="uid://c4ndmc0igw1gv"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameState="*res://addons/narrative_rpg_framework/core/GameState.gd"
+GlobalEnums="*res://addons/narrative_rpg_framework/core/GlobalEnums.gd"
 
 [editor_plugins]
 

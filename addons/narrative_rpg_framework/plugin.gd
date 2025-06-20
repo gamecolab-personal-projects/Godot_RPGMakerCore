@@ -1,23 +1,27 @@
 @tool
 extends EditorPlugin
 
-const AUTOLOAD_NAME := "GameState"
-const AUTOLOAD_PATH := "res://addons/narrative_rpg_framework/core/GameState.gd"
+const AUTOLOADS = {
+	"GameState": "res://addons/narrative_rpg_framework/core/GameState.gd",
+	"GlobalEnums": "res://addons/narrative_rpg_framework/core/GlobalEnums.gd"
+}
 
 func _enter_tree():
-	_create_autoload()
+	for name in AUTOLOADS.keys():
+		_create_autoload(name, AUTOLOADS[name])
 
 func _exit_tree():
-	_delete_autoload()
+	for name in AUTOLOADS.keys():
+		_delete_autoload(name)
 
-func _create_autoload():
-	if not ProjectSettings.has_setting("autoload/" + AUTOLOAD_NAME):
-		add_autoload_singleton(AUTOLOAD_NAME, AUTOLOAD_PATH)
-		print("GameState singleton: CREATED OK")
+func _create_autoload(name: String, path: String):
+	if not ProjectSettings.has_setting("autoload/" + name):
+		add_autoload_singleton(name, path)
+		print("%s singleton: CREATED OK" % name)
 	else:
-		print("GameState singleton: EXISTS OK")
+		print("%s singleton: EXISTS OK" % name)
 
-func _delete_autoload():
-	if ProjectSettings.has_setting("autoload/" + AUTOLOAD_NAME):
-		remove_autoload_singleton(AUTOLOAD_NAME)
-		print("GameState singleton: DELETED OK")
+func _delete_autoload(name: String):
+	if ProjectSettings.has_setting("autoload/" + name):
+		remove_autoload_singleton(name)
+		print("%s singleton: DELETED OK" % name)
