@@ -1,0 +1,29 @@
+# Godot-specific
+.import/
+export.cfg
+export_presets.cfg
+
+# Godot 4-generated files
+.godot/
+*.godot/tmp/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# User-specific
+*.tmp
+*.log
+*.cache
+*.mono/
+*.vs/
+*.user
+*.suo
+
+# Build output
+/bin/
+build/
+
+# Python virtual environments (si usás scripts externos)
+venv/
+.env/
